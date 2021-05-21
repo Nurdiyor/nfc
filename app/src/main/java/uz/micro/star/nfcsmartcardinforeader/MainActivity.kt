@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity(), CardNfcAsyncTask.CardNfcInterface {
     private var card: String? = null
     private var cardType: String? = null
     private var expiredDate: String? = null
-    private var mIsScanNow = false
     private var mCardNfcUtils: CardNfcUtils? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -110,10 +109,6 @@ class MainActivity : AppCompatActivity(), CardNfcAsyncTask.CardNfcInterface {
         }
     }
 
-    override fun startNfcReadCard() {
-        mIsScanNow = true
-    }
-
     override fun cardIsReadyToRead() {
         card = mCardNfcAsyncTask?.cardNumber
         card = getPrettyCardNumber(card!!)
@@ -131,23 +126,6 @@ class MainActivity : AppCompatActivity(), CardNfcAsyncTask.CardNfcInterface {
         mExpireDateText.setText(expiredDate);*/
         Toast.makeText(this, "Details: \n$card \n$cardType \n$expiredDate \n$cardCvv", Toast.LENGTH_SHORT).show()
         parseCardType(cardType!!)
-    }
-
-    override fun doNotMoveCardSoFast() {
-
-    }
-
-    override fun unknownEmvCard() {
-
-    }
-
-    override fun cardWithLockedNfc() {
-
-    }
-
-    override fun finishNfcReadCard() {
-        mCardNfcAsyncTask = null
-        mIsScanNow = false
     }
 
     private fun getPrettyCardNumber(card: String): String {

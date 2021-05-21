@@ -41,17 +41,17 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object> {
     }
 
     public interface CardNfcInterface {
-        void startNfcReadCard();
+//        void startNfcReadCard();
 
         void cardIsReadyToRead();
 
-        void doNotMoveCardSoFast();
+//        void doNotMoveCardSoFast();
 
-        void unknownEmvCard();
+//        void unknownEmvCard();
 
-        void cardWithLockedNfc();
+//        void cardWithLockedNfc();
 
-        void finishNfcReadCard();
+//        void finishNfcReadCard();
     }
 
     public final static String CARD_UNKNOWN = EmvCardScheme.UNKNOWN.toString();
@@ -118,7 +118,7 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object> {
                     execute();
                 } else {
                     if (!b.mFromStart) {
-                        mInterface.unknownEmvCard();
+//                        mInterface.unknownEmvCard();
                     }
                     clearAll();
                 }
@@ -156,7 +156,7 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        mInterface.startNfcReadCard();
+//        mInterface.startNfcReadCard();
         mProvider.getLog().setLength(0);
     }
 
@@ -198,22 +198,22 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object> {
                     }
                     mInterface.cardIsReadyToRead();
                 } else if (mCard.isNfcLocked()) {
-                    mInterface.cardWithLockedNfc();
+//                    mInterface.cardWithLockedNfc();
                 }
             } else {
-                mInterface.unknownEmvCard();
+//                mInterface.unknownEmvCard();
             }
         } else {
-            mInterface.doNotMoveCardSoFast();
+//            mInterface.doNotMoveCardSoFast();
         }
-        mInterface.finishNfcReadCard();
+//        mInterface.finishNfcReadCard();
         clearAll();
     }
 
     private void doInBackground() {
         IsoDep mIsoDep = IsoDep.get(mTag);
         if (mIsoDep == null) {
-            mInterface.doNotMoveCardSoFast();
+//            mInterface.doNotMoveCardSoFast();
             return;
         }
         mException = false;
