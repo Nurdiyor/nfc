@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uz.micro.star.humo_atto_visa_union_pay_nfc_info_reader">
-    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission
+        android:name="android.permission.NFC"
+        android:required="false" />
+
     <uses-feature
         android:name="android.hardware.nfc"
-        android:required="true" />
+        android:required="false" />
 
 </manifest>
