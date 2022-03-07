@@ -57,9 +57,16 @@ public final class CardNfcManager {
 	public CardNfcManager(Activity activity) {
 		this.activity = activity;
 		nfcAdapter = NfcAdapter.getDefaultAdapter(activity);
-		pendingIntent = PendingIntent.getActivity(activity, 0, new Intent(
-				activity, activity.getClass())
-				.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+		  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            pendingIntent = PendingIntent.getActivity(activity,
+                    0, new Intent(
+                            activity, activity.getClass()), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+        } else {
+            pendingIntent = PendingIntent.getActivity(activity,
+                    0, new Intent(
+                            activity, activity.getClass()), PendingIntent.FLAG_UPDATE_CURRENT);
+        }
 		setupBeam(true);
 		status = getStatus();
 	}
