@@ -191,7 +191,7 @@ package uz.micro.star.nfcsmartcardinforeader
 ## }
   
 ## dependencies {
-	        implementation 'com.github.Nurdiyor:nfc:0.1.3'
+	        implementation 'com.github.Nurdiyor:nfc:0.1.4'
 ## }
 
 ## AndroidManifest.xml
