@@ -25,6 +25,7 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.IsoDep;
 import android.nfc.tech.NfcF;
+import android.os.Build;
 
 import uz.micro.star.humo_atto_visa_union_pay_nfc_info_reader.nfc.reader.ReaderListener;
 import uz.micro.star.humo_atto_visa_union_pay_nfc_info_reader.nfc.reader.ReaderManager;
